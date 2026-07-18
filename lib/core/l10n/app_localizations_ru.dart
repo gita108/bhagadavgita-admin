@@ -108,6 +108,11 @@ class AppLocalizationsRu implements AppLocalizations {
 
   @override String get page => 'Страница';
   @override String get of => 'из';
+  @override String showing(int start, int end, int total) => 'Показано $start–$end из $total';
+
+  @override String get dragFileHere => 'Перетащите файл сюда';
+  @override String get orClickToSelect => 'или нажмите для выбора';
+  @override String get allowedFormats => 'Допустимые форматы';
 
   @override String get confirmDeleteTitle => 'Подтверждение удаления';
   @override String confirmDeleteMessage(String item) => 'Удалить "$item"?';

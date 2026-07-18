@@ -132,6 +132,12 @@ abstract class AppLocalizations {
   // Pagination
   String get page;
   String get of;
+  String showing(int start, int end, int total);
+
+  // File drop zone
+  String get dragFileHere;
+  String get orClickToSelect;
+  String get allowedFormats;
 
   // Confirm dialog
   String get confirmDeleteTitle;

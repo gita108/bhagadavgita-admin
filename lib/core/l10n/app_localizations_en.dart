@@ -108,6 +108,11 @@ class AppLocalizationsEn implements AppLocalizations {
 
   @override String get page => 'Page';
   @override String get of => 'of';
+  @override String showing(int start, int end, int total) => 'Showing $start–$end of $total';
+
+  @override String get dragFileHere => 'Drop file here';
+  @override String get orClickToSelect => 'or click to select';
+  @override String get allowedFormats => 'Allowed formats';
 
   @override String get confirmDeleteTitle => 'Confirm deletion';
   @override String confirmDeleteMessage(String item) => 'Delete "$item"?';
