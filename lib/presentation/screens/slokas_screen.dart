@@ -136,8 +136,8 @@ class _SlokasScreenState extends ConsumerState<SlokasScreen> {
                                     header: l10n.slokaTranslation,
                                     flex: true,
                                     cellBuilder: (s) => AdminTableCell(
-                                      s.translation ?? l10n.notFilled,
-                                      secondary: s.translation == null,
+                                      s.translation.isEmpty ? l10n.notFilled : s.translation,
+                                      secondary: s.translation.isEmpty,
                                     ),
                                   ),
                                   AdminTableColumn(

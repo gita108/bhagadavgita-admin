@@ -52,12 +52,12 @@ class _SlokaFormScreenState extends ConsumerState<SlokaFormScreen> {
       final sloka = await ref.read(slokaDetailProvider(widget.slokaId!).future);
       _sloka = sloka;
       _nameController.text = sloka.name;
-      _textController.text = sloka.text ?? '';
-      _transcriptionController.text = sloka.transcription ?? '';
-      _translationController.text = sloka.translation ?? '';
-      _commentController.text = sloka.comment ?? '';
+      _textController.text = sloka.text;
+      _transcriptionController.text = sloka.transcription;
+      _translationController.text = sloka.translation;
+      _commentController.text = sloka.comment;
       _orderController.text = sloka.order.toString();
-      _vocabularies = List.from(sloka.vocabularies ?? []);
+      _vocabularies = List.from(sloka.vocabularies);
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -85,15 +85,10 @@ class _SlokaFormScreenState extends ConsumerState<SlokaFormScreen> {
         final input = SlokaInput(
           chapterId: widget.chapterId ?? _sloka!.chapterId,
           name: _nameController.text,
-          text: _textController.text.isEmpty ? null : _textController.text,
-          transcription: _transcriptionController.text.isEmpty
-              ? null
-              : _transcriptionController.text,
-          translation: _translationController.text.isEmpty
-              ? null
-              : _translationController.text,
-          comment:
-              _commentController.text.isEmpty ? null : _commentController.text,
+          text: _textController.text,
+          transcription: _transcriptionController.text,
+          translation: _translationController.text,
+          comment: _commentController.text,
           order: int.tryParse(_orderController.text) ?? 1,
           vocabularies: _vocabularies,
         );

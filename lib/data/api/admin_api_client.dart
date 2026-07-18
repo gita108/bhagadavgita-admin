@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:file_picker/file_picker.dart';
 import '../models/api_response.dart';
 import '../models/language_model.dart';
 import '../models/book_model.dart';
@@ -346,11 +347,36 @@ class AdminApiClient {
     throw Exception(apiResponse.error ?? 'Failed to load device stats');
   }
 
+  // Push notifications
+  Future<void> sendPushQuoteOfDay() async {
+    final response = await _dio.post('/push/quote-of-day');
+    final apiResponse = ApiResponse.fromJson(response.data, null);
+    if (!apiResponse.success) {
+      throw Exception(apiResponse.error ?? 'Failed to send push');
+    }
+  }
+
   // Import
   Future<ImportResult> importXml(int bookId, File file) async {
     final formData = FormData.fromMap({
       'bookId': bookId,
       'file': await MultipartFile.fromFile(file.path, filename: 'book.xml'),
+    });
+    final response = await _dio.post('/import/xml', data: formData);
+    final apiResponse = ApiResponse.fromJson(response.data, null);
+    if (apiResponse.success && apiResponse.data != null) {
+      return ImportResult.fromJson(apiResponse.data as Map<String, dynamic>);
+    }
+    throw Exception(apiResponse.error ?? 'Import failed');
+  }
+
+  Future<ImportResult> importBook(int bookId, PlatformFile file) async {
+    final formData = FormData.fromMap({
+      'bookId': bookId,
+      'file': MultipartFile.fromBytes(
+        file.bytes!,
+        filename: file.name,
+      ),
     });
     final response = await _dio.post('/import/xml', data: formData);
     final apiResponse = ApiResponse.fromJson(response.data, null);

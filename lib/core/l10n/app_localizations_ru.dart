@@ -107,7 +107,7 @@ class AppLocalizationsRu implements AppLocalizations {
   @override String get devicesAllPlatforms => 'Все платформы';
 
   @override String get page => 'Страница';
-  @override String get of => 'из';
+  @override String get pageOf => 'из';
   @override String showing(int start, int end, int total) => 'Показано $start–$end из $total';
 
   @override String get dragFileHere => 'Перетащите файл сюда';

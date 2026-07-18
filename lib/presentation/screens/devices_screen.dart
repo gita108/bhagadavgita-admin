@@ -209,7 +209,7 @@ class _DevicesScreenState extends ConsumerState<DevicesScreen> {
                           header: l10n.devicesLastActivity,
                           flex: true,
                           cellBuilder: (d) => AdminTableCell(
-                            _formatDate(d.lastModified),
+                            d.lastModified != null ? _formatDate(d.lastModified!) : '—',
                             secondary: true,
                           ),
                         ),

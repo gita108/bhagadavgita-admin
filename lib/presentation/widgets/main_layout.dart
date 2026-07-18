@@ -6,7 +6,6 @@ import '../../core/constants/dimens.dart';
 import '../../core/constants/typography.dart';
 import '../../core/l10n/app_localizations.dart';
 import '../providers/auth_provider.dart';
-import '../providers/locale_provider.dart';
 import 'sidebar.dart';
 import 'language_toggle.dart';
 

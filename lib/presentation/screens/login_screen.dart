@@ -42,7 +42,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       final success = await ref.read(appConfigProvider.notifier).login(
         _emailController.text.trim(),
         _passwordController.text,
-        rememberMe: _rememberMe,
       );
 
       if (success && mounted) {

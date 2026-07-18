@@ -16,4 +16,7 @@ class AppColors {
   static const titleBarBorder = Color(0xFFE1E1E1);
   static const error = Color(0xFFD32F2F);
   static const success = Color(0xFF4CAF50);
+  static const warning = Color(0xFFFF9800);
+  static const tableHeader = Color(0xFFF5F5F5);
+  static const tableRowAlt = Color(0xFFFAFAFA);
 }

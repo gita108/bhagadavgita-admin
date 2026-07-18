@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../core/constants/colors.dart';
 import '../../core/l10n/app_localizations.dart';
-import '../../data/models/book_model.dart';
 import '../../data/models/device_model.dart';
 import '../../data/mock/mock_data.dart';
 import '../providers/data_providers.dart';

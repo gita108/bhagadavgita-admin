@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -62,7 +61,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             },
           ),
           GoRoute(
-            path: '/slokas/:id/edit',
+            path: '/slokas/:id',
             builder: (context, state) {
               final id = int.parse(state.pathParameters['id']!);
               return SlokaFormScreen(slokaId: id);

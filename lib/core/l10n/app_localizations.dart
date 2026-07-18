@@ -131,7 +131,7 @@ abstract class AppLocalizations {
 
   // Pagination
   String get page;
-  String get of;
+  String get pageOf;
   String showing(int start, int end, int total);
 
   // File drop zone
